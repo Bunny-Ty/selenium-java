@@ -109,7 +109,4 @@ public class Browser {
         action.moveToElement(driver.findElement(by)).perform();
     }
 
-    public String getAttribute(String href) {
-        return driver.findElement(By.cssSelector(href)).getAttribute("href");
-    }
 }

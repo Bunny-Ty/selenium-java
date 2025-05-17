@@ -6,17 +6,13 @@ import utils.Browser;
 
 import static utils.Browser.*;
 
-public class BMIPageCalculatorPage {
+public class BMICalculatorPage {
     /*
     fill form
     get result
     clear form
     select unitmetric
      */
-    WebDriver driver;
-    public BMIPageCalculatorPage(WebDriver driver){
-        this.driver = driver;
-    }
 
     public void open(){
         visit("https://www.calculator.net/bmi-calculator.html");
@@ -38,10 +34,10 @@ public class BMIPageCalculatorPage {
         } else {
             check(By.id("csex2"));
         }
+        fill(By.id("cheightmeter"), height);
+        fill(By.id("ckg"), weight);
+        click(By.xpath("//input[@value='Calculate']"));
     }
-    fill(By.id("cheightmeter"), height);
-    fill(By.id("ckg"), weight);
-    click(By.xpath("//input[@value='Calculate']"));
 
     public String getResultText(){
         return getText(By.cssSelector(".bigtext"));
