@@ -33,7 +33,4 @@ public class MouseActionsPage {
         return null;
     }
 
-    public String getUserLink(int userIndex) {
-        return findElement(By.cssSelector(String.format(".figcaption:nth-child(%d) a", userIndex))).getAttribute("href");
-    }
 }
