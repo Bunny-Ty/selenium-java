@@ -40,6 +40,7 @@ public class Browser {
                 prefs.put("profile.password_leak_detection", false);
                 chromeOptions.setExperimentalOption("prefs", prefs);
                 chromeOptions.addArguments("--disable-password-manager-leak-detection");
+                chromeOptions.addArguments("--headless");
                 driver = new ChromeDriver(chromeOptions);
                 break;
             case "firefox":
