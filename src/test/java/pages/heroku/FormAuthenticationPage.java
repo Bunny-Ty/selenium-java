@@ -17,6 +17,6 @@ public class FormAuthenticationPage {
         click(By.cssSelector("[type=submit]"));
     }
     public String getWelcomeMessage(){
-        return getText(By.className("flash-message"));
+        return getText(By.className("success"));
     }
 }

@@ -5,5 +5,4 @@
             <class name="heroku.FormAuthenticationTest"/>
         </classes>
     </test>
-
 </suite>
