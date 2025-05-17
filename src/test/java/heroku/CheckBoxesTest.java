@@ -5,41 +5,26 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pages.heroku.CheckboxPage;
+
+import static utils.Browser.openBrowser;
+import static utils.Browser.quit;
 
 public class CheckBoxesTest {
 
     @Test
     void tc02() {
-        /**
-         * TC02: Checkboxes : Check to a box
+        openBrowser("chrome");
+        CheckboxPage checkboxPage = new CheckboxPage();
+        checkboxPage.open();
 
-         * Open browser
+        checkboxPage.check("1");
+        Assert.assertTrue(checkboxPage.isChecked("1"));
 
-         * Navigate to https://the-internet.herokuapp.com/checkboxes
+        checkboxPage.check("3");
+        Assert.assertTrue(checkboxPage.isChecked("3"));
 
-         * Check on checkbox1
-
-         * Verify checkbox1 is checked
-
-         * Check on checkbox2
-
-         * Verify checkbox2 is checked
-         */
-
-        WebDriver driver = new ChromeDriver();
-        driver.get("https://the-internet.herokuapp.com/checkboxes");
-
-        if (!driver.findElement(By.cssSelector("form#checkboxes input:nth-child(1)")).isSelected()) {
-            driver.findElement(By.cssSelector("form#checkboxes input:nth-child(1)")).click();
-        }
-        Assert.assertTrue(driver.findElement(By.cssSelector("form#checkboxes input:nth-child(1)")).isSelected());
-
-        if (!driver.findElement(By.cssSelector("form#checkboxes input:nth-child(3)")).isSelected()) {
-            driver.findElement(By.cssSelector("form#checkboxes input:nth-child(3)")).click();
-        }
-        Assert.assertTrue(driver.findElement(By.cssSelector("form#checkboxes input:nth-child(3)")).isSelected());
-
-        driver.quit();
+        quit();
     }
 
     @Test
@@ -54,7 +39,6 @@ public class CheckBoxesTest {
         Assert.assertFalse(driver.findElement(By.cssSelector("input[data-test=checkbox-label-checkbox3]")).isSelected());
 
         driver.quit();
-
 
     }
 
